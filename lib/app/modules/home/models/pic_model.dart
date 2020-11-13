@@ -2,12 +2,12 @@ import 'dart:convert';
 
 class PicModel {
 
-  final String copyright;
-  final String explanation;
-  final String title;
-  final String imageUrl;
+  String copyright = "";
+  String explanation = "";
+  String title = "";
+  String url = "";
 
-  PicModel({this.copyright, this.explanation, this.title, this.imageUrl});
+  PicModel({this.copyright, this.explanation, this.title, this.url});
   
 
   Map<String, dynamic> toMap() {
@@ -15,7 +15,7 @@ class PicModel {
       'copyright': copyright,
       'explanation': explanation,
       'title': title,
-      'imageUrl': imageUrl,
+      'url': url,
     };
   }
 
@@ -26,7 +26,7 @@ class PicModel {
       copyright: map['copyright'],
       explanation: map['explanation'],
       title: map['title'],
-      imageUrl: map['imageUrl'],
+      url: map['url'],
     );
   }
 

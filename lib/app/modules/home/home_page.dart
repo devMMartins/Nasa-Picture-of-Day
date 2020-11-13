@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:nasa_pic_of_day/app/modules/home/models/pic_model.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -40,10 +42,24 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           )
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          
-        ],
+      body: SingleChildScrollView(
+        child: Observer(builder: (_) {
+          return Column(
+            children: <Widget>[
+              Text(
+                  controller.model.title != null ? controller.model.title : ""),
+              controller.model.url != null
+                  ? Image.network(controller.model.url)
+                  : Text(""),
+              Text(controller.model.copyright != null
+                  ? controller.model.copyright
+                  : ""),
+              Text(controller.model.explanation != null
+                  ? controller.model.explanation
+                  : ""),
+            ],
+          );
+        }),
       ),
     );
   }

@@ -15,7 +15,7 @@ abstract class _HomeControllerBase with Store {
   final DateFormat formatter = DateFormat('yyyy-MM-dd');
 
   @observable
-  PicModel model;
+  PicModel model = PicModel();
 
   @action
   void call(DateTime day) {
